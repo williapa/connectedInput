@@ -65,10 +65,20 @@ label {
 	color: rgba(44,44,44,0.88);
 }
 .right h2 {
-	color: #992211;
+
 }
 .left h2, .right h2 {
 	margin-top: 0px;
 	font-size: 2em;
 	text-align: center;
+}
+
+.red {
+	color: #992211;
+}
+.yellow {
+	color: #ff8811;
+}
+.green {
+	color: #228822;
 }

@@ -72,33 +72,40 @@ var couldYouHireMe = function () {
   var resultEl = document.getElementById("answer");
   var answer = "";
 
-  if (sliderval < 80000) {
+  if (sliderval < 80001) {
 
     answer = "No.";
+    resultEl.className = "red";
 
   } else if (sliderval < 90000) {
 
     answer = "Probably not.";
+    resultEl.className = "yellow";
 
   } else if (sliderval < 100000) { 
 
     answer = "Possibly!";
+    resultEl.className = "yellow";
 
   } else if (sliderval < 110000) {
 
     answer = "Probably.";
+    resultEl.className = "yellow";
 
   } else if (sliderval < 120000) {
 
     answer = "Almost definitely.";
+    resultEl.className = "yellow";
 
   } else if (sliderval > 120000 ) {
 
     answer = "Yes!";
+    resultEl.className = "green";
 
   } else {
 
     answer = "I honestly dont know?";
+    resultEl.className = "red";
 
   }
 
