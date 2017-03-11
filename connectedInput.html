@@ -7,13 +7,14 @@
   <h1> Connected Input </h1>
   <fieldset>
   <legend> <label> salary </label> </legend>
-  <input id="slider" type="range" step="100" min="50000" max="250000" value="80000"></input>
-  <input id="tf" type="text" step="100" min="50000" max="250000" value="$80,000"></input>
+  <input id="slider" type="range" step="100" min="50000" max="150000" value="80000" data-attr-gradient="true"></input>
+  <input id="tf" type="text" step="100" min="50000" max="150000" value="$80,000"></input>
   </fieldset>
   <p> Connected input marries a slider with a validated text input, formatted for currency use. 
       Value for both fields is always identical, one text formatted and one plain value. 
       A minimum and maximum can easily be set in html. 
       Javascript ensures $ and comma are always displayed. 
+      A gradient can be configured through html to fill behind the text input relative to the value.
       Text field is validated on blur. 
       Step can be configured through html attribute, so there are no ugly decimals.
       Best of all? No need for dumb, tacky validation errors! 

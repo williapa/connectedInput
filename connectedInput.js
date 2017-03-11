@@ -1,5 +1,6 @@
 var textField = document.getElementById("tf");
 var sliderField = document.getElementById("slider");
+mousedown = false;
 
 var stripComma = function (str) {
   
@@ -68,7 +69,9 @@ var cleanseMeGoddess = function (str) {
 
 var couldYouHireMe = function () {
 
-  var sliderval = document.getElementById("slider").value;
+
+  var slider = document.getElementById("slider");
+  var sliderval = slider.value;
   var resultEl = document.getElementById("answer");
   var answer = "";
 
@@ -110,6 +113,28 @@ var couldYouHireMe = function () {
   }
 
   resultEl.innerHTML = answer;
+
+
+  //every time we update a result, update the gradient
+  johnEntwhistle();
+
+};
+
+//set gradient background. mostly just for practice of calculations and javascript
+var johnEntwhistle = function () {
+
+  var slider = document.getElementById("slider");
+
+  if(slider.getAttribute("data-attr-gradient") == "true") {
+
+    var total = parseInt(slider.getAttribute("max")) - parseInt(slider.getAttribute("min"));
+    var breakPercent = parseInt((parseInt(slider.value) - parseInt(slider.getAttribute("min"))) / total * 100);
+    var color = "rgba(01,09,09,0.11) ";
+    var linearGradient = "-webkit-linear-gradient(left, " + color + "0%, " + color + breakPercent + "%, white " + breakPercent + "%)";
+    
+    document.getElementById("tf").style.background = linearGradient;
+
+  }
 
 };
 
@@ -169,11 +194,27 @@ sliderField.addEventListener("input", function (event) {
   
 });
 
-sliderField.addEventListener("mousemove", function (event) {
+sliderField.addEventListener("mousedown", function (event) {
 
-
-//update calculator
-
-couldYouHireMe();
+    mousedown = true;
 
 });
+
+sliderField.addEventListener("mouseup", function (event) {
+
+    mouseup = false;
+
+});
+
+sliderField.addEventListener("mousemove", function (event) {
+
+  //update calculator if mousedown
+  if (mousedown) {
+    couldYouHireMe();
+  }
+
+
+});
+
+//call on init to set the gradient, I could have put it in the HTML to start but generally folks hate seeing inline styles in html templates
+johnEntwhistle();
