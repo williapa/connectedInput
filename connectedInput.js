@@ -161,3 +161,12 @@ sliderField.addEventListener("input", function (event) {
   couldYouHireMe();
   
 });
+
+sliderField.addEventListener("mousemove", function (event) {
+
+
+//update calculator
+
+couldYouHireMe();
+
+});
