@@ -5,8 +5,9 @@
 <body>
 <div class="vert">
   <h1> Connected Input </h1>
-  <input id="slider" type="range" step="1" min="1000" max="27000" value="10000"></input>
-  <input id="tf" type="text" min="1000" max="27000" value="$10,000"></input>
+  <label for="slider" name="Salary"> Salary </label>
+  <input id="slider" type="range" step="100" min="50000" max="250000" value="80000"></input>
+  <input id="tf" type="text" step="100" min="50000" max="250000" value="$80,000"></input>
 
   <p> Connected input marries a slider with a validated text input, formatted for currency use. 
       Value for both fields is always identical, one text formatted and one plain value. 
@@ -18,6 +19,19 @@
  </p>
 
 </div>
+
+<div class="results">
+
+	<div class="left">
+		<h2> Would I accept that salary? </h2>
+	</div>
+
+	<div class="right">
+		<h2 id="answer"> No. </h2>
+	</div>
+
+</div>
+
 </body>
 <script type="text/javascript" src="connectedInput.js"></script>
 </html>

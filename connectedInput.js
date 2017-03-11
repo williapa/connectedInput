@@ -66,6 +66,46 @@ var cleanseMeGoddess = function (str) {
   
 };
 
+var couldYouHireMe = function () {
+
+  var sliderval = document.getElementById("slider").value;
+  var resultEl = document.getElementById("answer");
+  var answer = "";
+
+  if (sliderval < 80000) {
+
+    answer = "No.";
+
+  } else if (sliderval < 90000) {
+
+    answer = "Probably not.";
+
+  } else if (sliderval < 100000) { 
+
+    answer = "Possibly!";
+
+  } else if (sliderval < 110000) {
+
+    answer = "Probably.";
+
+  } else if (sliderval < 120000) {
+
+    answer = "Almost definitely.";
+
+  } else if (sliderval > 120000 ) {
+
+    answer = "Yes!";
+
+  } else {
+
+    answer = "I honestly dont know?";
+
+  }
+
+  resultEl.innerHTML = answer;
+
+};
+
 textField.addEventListener("blur", function (event) {         
   
   var other = parseInt(cleanseMeGoddess(event.target.value)); 
@@ -79,6 +119,8 @@ textField.addEventListener("blur", function (event) {
   }
   
   document.getElementById("tf").value = tyDollaSign(1,addComma(other.toString()));
+
+  couldYouHireMe();
   
 });
                            
@@ -98,6 +140,8 @@ textField.addEventListener("input", function (event) {
   
   document.getElementById("slider").value = stripComma(other.toString());
 
+  couldYouHireMe();
+
 });
 
 sliderField.addEventListener("input", function (event) {          
@@ -113,5 +157,7 @@ sliderField.addEventListener("input", function (event) {
   }
   
   document.getElementById("tf").value = tyDollaSign(1,addComma(other.toString()));
+
+  couldYouHireMe();
   
 });
