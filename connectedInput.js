@@ -55,6 +55,12 @@ var cleanseMeGoddess = function (str) {
     if (clean.indexOf(char) > '-1') { result = result + char; }
     
   }
+
+  if ( result.length < 1 ) {
+
+    result = "0";
+
+  }
   
   return result;
   
