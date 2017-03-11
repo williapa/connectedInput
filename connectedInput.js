@@ -67,6 +67,24 @@ var cleanseMeGoddess = function (str) {
   
 };
 
+var reformattingDisk = function (event) {         
+  
+  var other = parseInt(cleanseMeGoddess(event.target.value)); 
+  var min = parseInt(sliderField.getAttribute("min"));
+  var max = parseInt(sliderField.getAttribute("max"));
+  
+  if (other < min ) {
+    other = min;
+  } else if ( other > max ) {
+    other = max;
+  }
+  
+  document.getElementById("tf").value = tyDollaSign(1,addComma(other.toString()));
+
+  couldYouHireMe();
+
+};
+
 var couldYouHireMe = function () {
 
 
@@ -138,23 +156,7 @@ var johnEntwhistle = function () {
 
 };
 
-textField.addEventListener("blur", function (event) {         
-  
-  var other = parseInt(cleanseMeGoddess(event.target.value)); 
-  var min = parseInt(sliderField.getAttribute("min"));
-  var max = parseInt(sliderField.getAttribute("max"));
-  
-  if (other < min ) {
-    other = min;
-  } else if ( other > max ) {
-    other = max;
-  }
-  
-  document.getElementById("tf").value = tyDollaSign(1,addComma(other.toString()));
-
-  couldYouHireMe();
-  
-});
+textField.addEventListener("blur", reformattingDisk);
                            
 textField.addEventListener("input", function (event) {
   
@@ -176,23 +178,7 @@ textField.addEventListener("input", function (event) {
 
 });
 
-sliderField.addEventListener("input", function (event) {          
-  
-  var other = parseInt(event.target.value); 
-  var min = parseInt(sliderField.getAttribute("min"));
-  var max = parseInt(sliderField.getAttribute("max"));
-  
-  if (other < min ) {
-    other = min;
-  } else if ( other > max ) {
-    other = max;
-  }
-  
-  document.getElementById("tf").value = tyDollaSign(1,addComma(other.toString()));
-
-  couldYouHireMe();
-  
-});
+sliderField.addEventListener("input", reformattingDisk);
 
 sliderField.addEventListener("mousedown", function (event) {
 
@@ -215,6 +201,18 @@ sliderField.addEventListener("mousemove", function (event) {
 
 
 });
+
+//if a user presses enter, just reevalute the input field
+
+document.onkeypress = function(e) {
+    var event = e || window.event;
+    var charCode = event.which || event.keyCode;
+
+    if ( charCode == '13' ) {
+      // Enter pressed
+      reformattingDisk(e);
+    }
+}
 
 //call on init to set the gradient, I could have put it in the HTML to start but generally folks hate seeing inline styles in html templates
 johnEntwhistle();

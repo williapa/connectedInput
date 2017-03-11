@@ -10,15 +10,19 @@
   <input id="slider" type="range" step="100" min="50000" max="150000" value="80000" data-attr-gradient="true"></input>
   <input id="tf" type="text" step="100" min="50000" max="150000" value="$80,000"></input>
   </fieldset>
-  <p> Connected input marries a slider with a validated text input, formatted for currency use. 
-      Value for both fields is always identical, one text formatted and one plain value. 
-      A minimum and maximum can easily be set in html. 
-      Javascript ensures $ and comma are always displayed. 
-      A gradient can be configured through html to fill behind the text input relative to the value.
-      Text field is validated on blur. 
-      Step can be configured through html attribute, so there are no ugly decimals.
-      Best of all? No need for dumb, tacky validation errors! 
- </p>
+  <p> Connected input marries a custom slider with a validated text input, formatted for currency use. 
+  	  CSS offers the cross-browser slider styles, while javascript offers following features: </p>
+
+  <ul>
+  	<li> Min and max set through html attributes </li>
+  	<li> Value for both fields always connected, one formatted string & one digit-only </li>
+  	<li>Text field stripped of all non-digits and reformatted on blur </li>
+  	<li> Step value set through html to prevent ugly decimals </li>
+  	<li> Gradient toggled through html attribute </li>
+  	<li> Dollar sign and commas formatted through javascript </li>
+  	<li> Best of all? No need for dumb, tacky validation errors! </li>
+  	<li> ADA compliant </li>
+  </ul>
 
 </div>
 
